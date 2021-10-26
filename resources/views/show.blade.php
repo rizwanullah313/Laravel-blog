@@ -41,7 +41,13 @@
                             <td>{{$contact->email}}</td>
                             <td>{{$contact->phone}}</td>
                             <td><a href="/contacts/{{$contact->id}}/edit" class="btn btn-warning">Edit</a></td>
-                            <td><a href="" class="btn btn-danger">Delete</a></td>
+                            <td>
+                            <form action="/contacts/{{$contact->id}}" method="POST">
+                            @csrf
+                            @method("DELETE")
+                            <input type="submit" value="Delete" class="btn btn-danger">
+                            </form>
+                            </td>
                         </tr>
 
                         @endforeach
