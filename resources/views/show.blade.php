@@ -40,7 +40,7 @@
                             <td>{{$contact->name}}</td>
                             <td>{{$contact->email}}</td>
                             <td>{{$contact->phone}}</td>
-                            <td><a href="" class="btn btn-warning">Edit</a></td>
+                            <td><a href="/contacts/{{$contact->id}}/edit" class="btn btn-warning">Edit</a></td>
                             <td><a href="" class="btn btn-danger">Delete</a></td>
                         </tr>
 
