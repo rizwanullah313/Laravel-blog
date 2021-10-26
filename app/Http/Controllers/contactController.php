@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Contact;
+use App\Models\Contact;
 class contactController extends Controller
 {
     /**
@@ -34,6 +34,8 @@ class contactController extends Controller
      */
     public function store(Request $request)
     {
+        $id = auth()->user()->id;
+
         $request->validate(
             [
                 'name' => 'required',
@@ -41,7 +43,12 @@ class contactController extends Controller
                 'phone' => 'required',
             ]
         );
-        echo "Submitted";
+        $contact = Contact::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'userid' => $id
+        ]);
     }
 
     /**
