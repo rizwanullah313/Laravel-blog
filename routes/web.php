@@ -19,7 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('contacts', contactController::class);
+Route::resource('contacts', contactController::class)->middleware("auth");
 
 Auth::routes();
 

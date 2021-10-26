@@ -13,9 +13,12 @@
                             {{ session('status') }}
                         </div>
                     @endif
+                    <br>
+                    <h1>User Dashboard</h1>
 
 
                    <a href="/contacts/create" class="btn btn-primary" >Add Contact</a>
+                   <a href="/contacts" class="btn btn-primary">Show Contacts</a>
                 </div>
             </div>
         </div>
