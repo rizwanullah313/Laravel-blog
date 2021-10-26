@@ -14,12 +14,6 @@
                         </div>
                     @endif
 
-                    @if(Session::has('contactAdded'))
-                    <div class="alert alert success">
-                        {{Session::get('contactAdded')}}
-                    </div>
-
-                    @endif
 
                    <a href="/contacts/create" class="btn btn-primary" >Add Contact</a>
                 </div>

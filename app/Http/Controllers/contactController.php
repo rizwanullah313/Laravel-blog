@@ -14,7 +14,10 @@ class contactController extends Controller
     public function index()
     {
         // echo "Contact ha been added";
-        return view("home");
+        $id = \Auth::user()->id;        
+        $contacts = Contact::where('userid', $id)->orderBy("id", "desc")->paginate(20);
+
+        return view("show", ['contacts' => $contacts]);
     }
 
     /**
@@ -35,8 +38,7 @@ class contactController extends Controller
      */
     public function store(Request $request)
     {
-        $id = auth()->user()->id;
-
+        $id = \Auth::user()->id;
         $request->validate(
             [
                 'name' => 'required',
