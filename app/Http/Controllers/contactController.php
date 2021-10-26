@@ -13,7 +13,8 @@ class contactController extends Controller
      */
     public function index()
     {
-        //
+        // echo "Contact ha been added";
+        return view("home");
     }
 
     /**
@@ -49,6 +50,9 @@ class contactController extends Controller
             'phone' => $request->phone,
             'userid' => $id
         ]);
+        if($contact){
+            return redirect("contacts")->with("contactAdded", "Your Contact has been Added Successfully");
+        }
     }
 
     /**
